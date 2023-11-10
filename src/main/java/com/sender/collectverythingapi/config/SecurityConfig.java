@@ -47,6 +47,7 @@ public class SecurityConfig {
                 }).and().csrf().disable().authorizeHttpRequests( (x) -> {
                     x.requestMatchers(
                             "/auth/authenticate",
+                            "/auth/register",
                             "/script/allBuild"
                     ).permitAll().anyRequest().authenticated();
                 }).authenticationProvider(authenticationProvider())
