@@ -77,9 +77,9 @@ public class UserServiceImpl implements UserService {
         validator.validate(userDto);
         User user = UserDto.toEntity(userDto);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        System.out.println("Mot de passe generé -> "+user.getPassword()); // Pour info
 
         user.setRole(ROLE_USER);
+        user.setActive(true);
 
         var savedUser =  repository.save(user);
 

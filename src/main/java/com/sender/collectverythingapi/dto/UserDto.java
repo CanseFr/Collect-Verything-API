@@ -1,6 +1,8 @@
 package com.sender.collectverythingapi.dto;
 
 import com.sender.collectverythingapi.entity.User;
+import jakarta.persistence.Column;
+import jakarta.persistence.UniqueConstraint;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

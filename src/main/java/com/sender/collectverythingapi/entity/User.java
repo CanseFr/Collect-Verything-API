@@ -1,10 +1,7 @@
 package com.sender.collectverythingapi.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,6 +26,7 @@ public class User implements UserDetails {
 
     private String lastname;
     private String firstname;
+    @Column(unique = true)
     private String email;
     private String password;
     private String role;
