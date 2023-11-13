@@ -11,6 +11,7 @@ import com.sender.collectverythingapi.services.UserService;
 import com.sender.collectverythingapi.validators.ObjectValidationException;
 import com.sender.collectverythingapi.validators.ObjectValidator;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -73,7 +74,7 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public AuthenticationResponse register(UserDto userDto) throws ObjectValidationException {
+    public AuthenticationResponse register(UserDto userDto) throws ObjectValidationException, DataIntegrityViolationException {
         validator.validate(userDto);
         User user = UserDto.toEntity(userDto);
         user.setPassword(passwordEncoder.encode(user.getPassword()));

@@ -41,7 +41,7 @@ public class UserDto {
     @Size(min = 8, max = 16, message = "Le password doit contenir 8 characteres min et 16 characteres max")
     private String password;
 
-    private String iban;
+    private String birthday;
 
     private boolean active;
 
@@ -52,6 +52,7 @@ public class UserDto {
                 .lastname(user.getLastname())
                 .email(user.getEmail())
                 .password(user.getPassword())
+                .birthday(user.getBirthday())
                 .active(user.isActive())
                 .build();
     }
@@ -63,6 +64,7 @@ public class UserDto {
                 .lastname(userDto.getLastname().trim().toLowerCase())
                 .email(userDto.getEmail())
                 .password(userDto.getPassword())
+                .birthday(userDto.getBirthday())
                 .build();
     }
 
