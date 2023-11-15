@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RolesAllowed("ROLE_ADMIN")
 @RequestMapping("/user")
 @RestController
 @RequiredArgsConstructor
@@ -18,6 +19,7 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/")
+    @RolesAllowed("ROLE_ADMIN")
     public ResponseEntity<List<User>> findAll(){
         return ResponseEntity.ok(userService.findAll());
     }

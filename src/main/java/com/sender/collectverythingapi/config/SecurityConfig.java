@@ -37,7 +37,6 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-
         httpSecurity.cors().configurationSource(httpServletteRequest -> {
                     CorsConfiguration corsConfiguration = new CorsConfiguration();
                     corsConfiguration.applyPermitDefaultValues();
